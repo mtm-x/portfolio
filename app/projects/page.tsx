@@ -35,7 +35,7 @@ export default async function ProjectsPage() {
               .filter((_, i) => i % 3 === 0)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} views={0} />
+                  <Article project={project} />
                 </Card>
               ))}
           </div>
@@ -44,7 +44,7 @@ export default async function ProjectsPage() {
               .filter((_, i) => i % 3 === 1)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} views={0} />
+                  <Article project={project} />
                 </Card>
               ))}
           </div>
@@ -53,7 +53,7 @@ export default async function ProjectsPage() {
               .filter((_, i) => i % 3 === 2)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} views={0} />
+                  <Article project={project} />
                 </Card>
               ))}
           </div>
