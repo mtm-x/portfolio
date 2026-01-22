@@ -6,17 +6,17 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "Thamarai",
-    template: "%s | Thamarai",
+    default: "Thamaraimanalan M",
+    template: "%s | Thamaraimanalan M",
   },
   description:
     "Embedded Systems Engineer working with Linux Kernel, Qt Framework, and low-level programming",
   openGraph: {
-    title: "Thamarai",
+    title: "Thamaraimanalan M",
     description:
       "Embedded Systems Engineer working with Linux Kernel, Qt Framework, and low-level programming",
     url: "https://mtm-x.com",
-    siteName: "Thamarai",
+    siteName: "Thamaraimanalan M",
     images: [
       {
         url: "https://mtm-x.com/og.png",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Thamarai",
+    title: "Thamaraimanalan M",
     card: "summary_large_image",
   },
   icons: {

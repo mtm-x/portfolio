@@ -13,7 +13,7 @@ export default function About() {
             About Me
           </h2>
           <p className="mt-4 text-zinc-400">
-            Final year ECE student at GCT Coimbatore, passionate about embedded systems and low-level programming.
+            Final year ECE student at GCT Coimbatore, much interested in systems programming embedded systems and open source.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
@@ -26,16 +26,13 @@ export default function About() {
               <div className="space-y-4 text-zinc-400">
                 <p>
                   Final year <span className="text-zinc-100 font-semibold">ECE student</span> at GCT Coimbatore. 
-                  Currently doing a course on embedded systems and Linux kernel by Pyjamabrah (taught by Google engineers).
+                  Currently doing a course on embedded systems and Linux kernel by Pyjamacafe (taught by Google engineers).
                 </p>
                 <p>
                   I work with <span className="text-zinc-100 font-semibold">C</span> mostly, plus Python and shell scripts for automation. 
-                  Did a 4-month internship at <span className="text-zinc-100 font-semibold">FOSSEE, IIT Bombay</span> building a PyQt6 app for OpenModelica simulations.
+                  Did a 4-month internship at <span className="text-zinc-100 font-semibold">FOSSEE (Free/Libre and Open Source Software for Education), IIT Bombay</span> building a PyQt6 app for OpenModelica simulations.
                 </p>
-                <p>
-                  My GitHub has a bunch of projects around embedded systems, Qt, and Linux stuff. 
-                  I just like building things and learning how stuff works under the hood.
-                </p>
+          
               </div>
             </div>
           </Card>
@@ -61,7 +58,6 @@ export default function About() {
                 <h4 className="text-lg font-semibold text-zinc-100 mb-4">Programming Languages</h4>
                 <ul className="space-y-2 text-zinc-400">
                   <li>• C</li>
-                  <li>• C++</li>
                   <li>• Python</li>
                   <li>• Shell Scripting</li>
                 </ul>
@@ -73,10 +69,9 @@ export default function About() {
                 <h4 className="text-lg font-semibold text-zinc-100 mb-4">Embedded Systems & IoT</h4>
                 <ul className="space-y-2 text-zinc-400">
                   <li>• Linux Kernel</li>
-                  <li>• Qt Framework</li>
                   <li>• Raspberry Pi</li>
-                  <li>• Arduino</li>
-                  <li>• ROS2</li>
+                  <li>• Arm cortex-M</li>
+                  <li>• Qt Framework</li>
                 </ul>
               </div>
             </Card>
@@ -87,8 +82,6 @@ export default function About() {
                 <ul className="space-y-2 text-zinc-400">
                   <li>• Git</li>
                   <li>• GitHub</li>
-                  <li>• Docker</li>
-                  <li>• OpenCV</li>
                 </ul>
               </div>
             </Card>
