@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     template: "%s | Thamaraimanalan M",
   },
   description:
-    "Embedded Systems Engineer working with Linux Kernel, Qt Framework, and low-level programming",
+    "Embedded Systems Engineer working with Linux Kernel, Open Source, and Systems programming",
   openGraph: {
     title: "Thamaraimanalan M",
     description:
-      "Embedded Systems Engineer working with Linux Kernel, Qt Framework, and low-level programming",
+      "Embedded Systems Engineer working with Linux Kernel, Open Source, and Systems programming",
     url: "https://mtm-x.com",
     siteName: "Thamaraimanalan M",
     images: [

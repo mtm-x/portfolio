@@ -173,7 +173,7 @@ export default function About() {
         <div className="w-full h-px bg-zinc-800" />
         <div className="flex gap-4">
           <Link
-            href="mailto:mahasel.1969@gmail.com"
+            href="mailto:devthamaraimanalan.m@gmail.com"
             target="_blank"
             className="text-zinc-400 hover:text-zinc-100 transition-colors"
           >

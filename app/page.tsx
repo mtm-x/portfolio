@@ -43,7 +43,7 @@ export default function Home() {
             className="underline duration-500 hover:text-zinc-300"
           >
             Linux Kernel
-          </Link>, Qt Framework, and low-level programming.
+          </Link>, Open Source, and Systems programming.
         </h2>
       </div>
     </div>

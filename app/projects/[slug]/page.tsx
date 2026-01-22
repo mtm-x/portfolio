@@ -16,13 +16,21 @@ export async function generateStaticParams(): Promise<Props["params"][]> {
   return allProjects
     .filter((p) => p.published)
     .map((p) => ({
-      slug: p.slug,
+      slug: p.slug ?? p.path?.split("/").pop() ?? "",
     }));
 }
 
 export default async function PostPage({ params }: Props) {
   const slug = params?.slug;
-  const project = allProjects.find((project) => project.slug === slug);
+  const normalizedSlug = Array.isArray(slug) ? slug.join("/") : slug;
+  const project = allProjects.find(
+    (project) =>
+      project.slug === normalizedSlug ||
+      project.path === normalizedSlug ||
+      project.path === `/projects/${normalizedSlug}` ||
+      project.path?.endsWith(`/${normalizedSlug}`) ||
+      project._raw.flattenedPath === `projects/${normalizedSlug}`,
+  );
 
   if (!project) {
     notFound();
