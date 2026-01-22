@@ -1,11 +1,10 @@
 "use client";
-import { ArrowLeft, Eye, Github, Twitter } from "lucide-react";
+import { ArrowLeft, Eye, Github } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
 type Props = {
 	project: {
-		url?: string;
 		title: string;
 		description: string;
 		repository?: string;
@@ -22,12 +21,6 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 		links.push({
 			label: "GitHub",
 			href: `https://github.com/${project.repository}`,
-		});
-	}
-	if (project.url) {
-		links.push({
-			label: "Website",
-			href: project.url,
 		});
 	}
 	useEffect(() => {
@@ -67,16 +60,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 								views,
 							)}
 						</span>
-						<Link target="_blank" href="https://twitter.com/chronark_">
-							<Twitter
-								className={`w-6 h-6 duration-200 hover:font-medium ${
-									isIntersecting
-										? " text-zinc-400 hover:text-zinc-100"
-										: "text-zinc-600 hover:text-zinc-900"
-								} `}
-							/>
-						</Link>
-						<Link target="_blank" href="https://github.com/chronark">
+						<Link target="_blank" href="https://github.com/mtm-x">
 							<Github
 								className={`w-6 h-6 duration-200 hover:font-medium ${
 									isIntersecting

@@ -7,12 +7,12 @@ import "./mdx.css";
 export const revalidate = 60;
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export async function generateStaticParams(): Promise<Props["params"][]> {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return allProjects
     .filter((p) => p.published)
     .map((p) => ({
@@ -20,7 +20,8 @@ export async function generateStaticParams(): Promise<Props["params"][]> {
     }));
 }
 
-export default async function PostPage({ params }: Props) {
+export default async function PostPage(props: Props) {
+  const params = await props.params;
   const slug = params?.slug;
   const normalizedSlug = Array.isArray(slug) ? slug.join("/") : slug;
   const project = allProjects.find(
