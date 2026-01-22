@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build",
+    "prebuild": "contentlayer build",
+    "build": "next build --no-turbopack",
     "start": "next start",
     "fmt": "biome check --write ."
   },
