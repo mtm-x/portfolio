@@ -1,14 +1,14 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    },
-    "ignore": ["node_modules", ".next", "dist", ".contentlayer"]
-  },
-  "formatter": {
-    "enabled": true,
-    "ignore": ["node_modules", ".next", "dist", ".contentlayer"]
-  }
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		},
+		"ignore": ["node_modules", ".next", "dist", ".contentlayer"]
+	},
+	"formatter": {
+		"enabled": true,
+		"ignore": ["node_modules", ".next", "dist", ".contentlayer"]
+	}
 }
