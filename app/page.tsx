@@ -57,7 +57,7 @@ export default function Home() {
           >
             Linux kernel
           </Link>
-          , and writing C. Learning in public.
+          , and writing C.
         </h2>
 
         <div className="flex items-center justify-center gap-4 mt-8">
