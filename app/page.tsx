@@ -37,7 +37,7 @@ export default function Home() {
       <div className="z-10 flex flex-col items-center">
         <div className="animate-fade-in mb-5">
           <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-zinc-500 font-mono">
-            Embedded Systems Engineer
+            ECE Student &middot; Systems Programming
           </span>
         </div>
 
@@ -49,16 +49,15 @@ export default function Home() {
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in max-w-xl mx-auto px-6">
         <h2 className="text-sm text-zinc-500 leading-relaxed">
-          Building systems close to the metal — from{" "}
+          Interested in embedded systems, the{" "}
           <Link
             target="_blank"
             href="https://github.com/mtm-x"
             className="underline duration-500 hover:text-zinc-300"
           >
-            Linux Kernel
-          </Link>{" "}
-          modules to bare-metal firmware. Open source contributor and
-          systems programming enthusiast.
+            Linux kernel
+          </Link>
+          , and writing C. Learning in public.
         </h2>
 
         <div className="flex items-center justify-center gap-4 mt-8">
