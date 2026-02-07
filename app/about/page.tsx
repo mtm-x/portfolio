@@ -1,9 +1,16 @@
 import { ArrowUpRight } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 import { Card } from "../components/card";
 import { Footer } from "../components/footer";
 import { Navigation } from "../components/nav";
+
+export const metadata: Metadata = {
+	title: "About",
+	description:
+		"About Thamaraimanalan M — ECE student, embedded systems, Linux kernel.",
+};
 
 const skills = [
 	"C",
@@ -100,7 +107,7 @@ export default function About() {
 						<img
 							src="/images/portfolio/myself.jpeg"
 							alt="Thamaraimanalan M"
-							className="w-56 md:w-full h-auto object-contain rounded-lg grayscale hover:grayscale-0 transition-all duration-500"
+							className="w-56 md:w-full h-auto object-contain rounded-lg border border-zinc-800 grayscale hover:grayscale-0 transition-all duration-500"
 						/>
 					</div>
 				</div>

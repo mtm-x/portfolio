@@ -1,4 +1,5 @@
 import { allProjects } from "@/.contentlayer/generated";
+import type { Metadata } from "next";
 import { Mdx } from "@/app/components/mdx";
 import { notFound } from "next/navigation";
 import { Header } from "./header";
@@ -18,6 +19,25 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 		.map((p) => ({
 			slug: p.slug ?? p.path?.split("/").pop() ?? "",
 		}));
+}
+
+export async function generateMetadata(props: Props): Promise<Metadata> {
+	const params = await props.params;
+	const slug = params?.slug;
+	const normalizedSlug = Array.isArray(slug) ? slug.join("/") : slug;
+	const project = allProjects.find(
+		(p) =>
+			p.slug === normalizedSlug ||
+			p.path === normalizedSlug ||
+			p.path === `/projects/${normalizedSlug}` ||
+			p.path?.endsWith(`/${normalizedSlug}`) ||
+			p._raw.flattenedPath === `projects/${normalizedSlug}`,
+	);
+
+	return {
+		title: project?.title,
+		description: project?.description,
+	};
 }
 
 export default async function PostPage(props: Props) {

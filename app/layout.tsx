@@ -10,20 +10,13 @@ export const metadata: Metadata = {
 		template: "%s | Thamaraimanalan M",
 	},
 	description:
-		"Embedded Systems Engineer working with Linux Kernel, Open Source, and Systems programming",
+		"ECE student interested in embedded systems, the Linux kernel, and systems programming.",
 	openGraph: {
 		title: "Thamaraimanalan M",
 		description:
-			"Embedded Systems Engineer working with Linux Kernel, Open Source, and Systems programming",
+			"ECE student interested in embedded systems, the Linux kernel, and systems programming.",
 		url: "https://mtm-x.com",
 		siteName: "Thamaraimanalan M",
-		images: [
-			{
-				url: "https://mtm-x.com/og.png",
-				width: 1920,
-				height: 1080,
-			},
-		],
 		locale: "en-US",
 		type: "website",
 	},

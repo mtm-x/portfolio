@@ -1,11 +1,13 @@
 "use client";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
 export const Navigation: React.FC = () => {
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
+	const pathname = usePathname();
 
 	useEffect(() => {
 		if (!ref.current) return;
@@ -23,35 +25,31 @@ export const Navigation: React.FC = () => {
 				className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
 					isIntersecting
 						? "bg-zinc-900/0 border-transparent"
-						: "bg-zinc-900/500 border-zinc-800"
+						: "bg-zinc-900/50 border-zinc-800"
 				}`}
 			>
 				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
 					<div className="flex justify-between gap-8">
-						<Link
-							href="/"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-						>
-							Home
-						</Link>
-						<Link
-							href="/projects"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-						>
-							Projects
-						</Link>
-						<Link
-							href="/about"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-						>
-							About
-						</Link>
-						<Link
-							href="/contact"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-						>
-							Contact
-						</Link>
+						{[
+							{ href: "/", label: "Home" },
+							{ href: "/projects", label: "Projects" },
+							{ href: "/about", label: "About" },
+							{ href: "/contact", label: "Contact" },
+						].map((link) => {
+							const isActive =
+								link.href === "/"
+									? pathname === "/"
+									: pathname.startsWith(link.href);
+							return (
+								<Link
+									key={link.href}
+									href={link.href}
+									className={`duration-200 ${isActive ? "text-zinc-100" : "text-zinc-400 hover:text-zinc-100"}`}
+								>
+									{link.label}
+								</Link>
+							);
+						})}
 						<Link
 							href="/resume/ThamaraimanalanM_Resume.pdf"
 							target="_blank"

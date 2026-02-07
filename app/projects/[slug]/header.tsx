@@ -48,22 +48,14 @@ export const Header: React.FC<Props> = ({ project }) => {
 					<div className="flex justify-between gap-8">
 						<Link target="_blank" href="https://github.com/mtm-x">
 							<Github
-								className={`w-6 h-6 duration-200 hover:font-medium ${
-									isIntersecting
-										? " text-zinc-400 hover:text-zinc-100"
-										: "text-zinc-400 hover:text-zinc-100"
-								} `}
+								className="w-6 h-6 duration-200 hover:font-medium text-zinc-400 hover:text-zinc-100"
 							/>
 						</Link>
 					</div>
 
 					<Link
 						href="/projects"
-						className={`duration-200 hover:font-medium ${
-							isIntersecting
-								? " text-zinc-400 hover:text-zinc-100"
-								: "text-zinc-400 hover:text-zinc-100"
-						} `}
+						className="duration-200 hover:font-medium text-zinc-400 hover:text-zinc-100"
 					>
 						<ArrowLeft className="w-6 h-6 " />
 					</Link>

@@ -1,10 +1,17 @@
 import { allProjects } from "@/.contentlayer/generated";
+import type { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 import { Card } from "../components/card";
 import { Footer } from "../components/footer";
 import { Navigation } from "../components/nav";
 import { Article } from "./article";
+
+export const metadata: Metadata = {
+	title: "Projects",
+	description:
+		"Projects by Thamaraimanalan M — embedded systems, kernel modules, and systems programming.",
+};
 
 export const revalidate = 60;
 export default async function ProjectsPage() {
