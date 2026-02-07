@@ -41,7 +41,7 @@ export const Header: React.FC<Props> = ({ project }) => {
 				className={`fixed inset-x-0 top-0 z-50 backdrop-blur lg:backdrop-blur-none duration-200 border-b lg:bg-transparent ${
 					isIntersecting
 						? "bg-zinc-900/0 border-transparent"
-						: "bg-white/10  border-zinc-200 lg:border-transparent"
+						: "bg-zinc-900/80 border-zinc-800 lg:border-transparent"
 				}`}
 			>
 				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
@@ -51,7 +51,7 @@ export const Header: React.FC<Props> = ({ project }) => {
 								className={`w-6 h-6 duration-200 hover:font-medium ${
 									isIntersecting
 										? " text-zinc-400 hover:text-zinc-100"
-										: "text-zinc-600 hover:text-zinc-900"
+										: "text-zinc-400 hover:text-zinc-100"
 								} `}
 							/>
 						</Link>
@@ -62,7 +62,7 @@ export const Header: React.FC<Props> = ({ project }) => {
 						className={`duration-200 hover:font-medium ${
 							isIntersecting
 								? " text-zinc-400 hover:text-zinc-100"
-								: "text-zinc-600 hover:text-zinc-900"
+								: "text-zinc-400 hover:text-zinc-100"
 						} `}
 					>
 						<ArrowLeft className="w-6 h-6 " />

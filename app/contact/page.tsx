@@ -2,6 +2,7 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { Card } from "../components/card";
+import { Footer } from "../components/footer";
 import { Navigation } from "../components/nav";
 
 const socials = [
@@ -25,12 +26,24 @@ const socials = [
 	},
 ];
 
-export default function Example() {
+export default function Contact() {
 	return (
-		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+		<div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
 			<Navigation />
-			<div className="container flex items-center justify-center min-h-screen px-4 mx-auto pt-32">
-				<div className="grid w-full grid-cols-1 gap-8 mx-auto sm:grid-cols-3 lg:gap-16">
+			<div className="container flex flex-col items-center justify-center min-h-screen px-4 mx-auto">
+				<div className="text-center mb-16 pt-32">
+					<span className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-mono">
+						Let&apos;s connect
+					</span>
+					<h2 className="mt-4 text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
+						Get in Touch
+					</h2>
+					<p className="mt-4 text-zinc-400 max-w-md mx-auto leading-relaxed">
+						Have a project idea, want to collaborate, or just want to say hi?
+						Reach out through any of these channels.
+					</p>
+				</div>
+				<div className="grid w-full grid-cols-1 gap-8 mx-auto max-w-4xl sm:grid-cols-3 lg:gap-16">
 					{socials.map((s) => (
 						<Card key={s.href}>
 							<Link
@@ -46,9 +59,9 @@ export default function Example() {
 									{s.icon}
 								</span>{" "}
 								<div className="z-10 flex flex-col items-center">
-																		<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display break-all">
-																			{s.handle}
-																		</span>
+									<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display break-all">
+										{s.handle}
+									</span>
 									<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
 										{s.label}
 									</span>
@@ -58,6 +71,7 @@ export default function Example() {
 					))}
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 }
