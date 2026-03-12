@@ -28,6 +28,20 @@ const skills = [
 
 const timeline = [
 	{
+		period: "Mar 2026 — Present",
+		title: "Embedded Software Intern",
+		org: "Linumiz",
+		description:
+			"",
+	},
+	{
+		period: "Mar 2026 — Present",
+		title: "Linux Kernel Mentee — Spring 2026",
+		org: "Linux Foundation Mentorship Program",
+		description:
+			"Selected for the Linux Kernel Mentorship Program (Spring 2026, unpaid). Contributing to the Linux kernel under the guidance of an experienced kernel developer.",
+	},
+	{
 		period: "2026",
 		title: "First contribution to Zephyr RTOS",
 		org: "Zephyr Project",
@@ -98,8 +112,9 @@ export default function About() {
 							internals through Pyjamacafe's course.
 						</p>
 						<p className="mt-3 text-zinc-500 leading-relaxed text-sm">
-							Did a 4-month internship at FOSSEE, IIT Bombay where I worked
-							on a PyQt6 GUI for OpenModelica. Recently made my first
+							Currently an Embedded Software Intern at Linumiz and selected
+							for the Linux Kernel Mentorship Program (Spring 2026).
+							Previously interned at FOSSEE, IIT Bombay and made my first
 							contribution to the Zephyr RTOS project.
 						</p>
 					</div>
