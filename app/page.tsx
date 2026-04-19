@@ -3,7 +3,6 @@ import React from "react";
 import Particles from "./components/particles";
 
 const navigation = [
-  { name: "Projects", href: "/projects" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
@@ -37,7 +36,7 @@ export default function Home() {
       <div className="z-10 flex flex-col items-center">
         <div className="animate-fade-in mb-5">
           <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-zinc-500 font-mono">
-            ECE Student &middot; Systems Programming
+            Interested in embedded systems and open source
           </span>
         </div>
 
@@ -47,35 +46,6 @@ export default function Home() {
       </div>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="my-16 text-center animate-fade-in max-w-xl mx-auto px-6">
-        <h2 className="text-sm text-zinc-500 leading-relaxed">
-          Interested in embedded systems, the{" "}
-          <Link
-            target="_blank"
-            href="https://github.com/mtm-x"
-            className="underline duration-500 hover:text-zinc-300"
-          >
-            Linux kernel
-          </Link>
-          , and writing C.
-        </h2>
-
-        <div className="flex items-center justify-center gap-4 mt-8">
-          <Link
-            href="/projects"
-            className="text-xs sm:text-sm px-5 py-2 rounded-full border border-zinc-700 text-zinc-400 hover:text-zinc-100 hover:border-zinc-400 duration-500 transition-all"
-          >
-            View Projects →
-          </Link>
-          <Link
-            href="/resume/ThamaraimanalanM_Resume.pdf"
-            target="_blank"
-            className="text-xs sm:text-sm px-5 py-2 rounded-full bg-zinc-800/50 text-zinc-400 hover:bg-zinc-700/50 hover:text-zinc-100 duration-500 transition-all"
-          >
-            Resume ↓
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 "use client";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { Card } from "../components/card";
 import { Footer } from "../components/footer";
@@ -7,22 +7,24 @@ import { Navigation } from "../components/nav";
 
 const socials = [
 	{
-		icon: <Mail size={20} />,
-		href: "mailto:devthamaraimanalan.m@gmail.com",
-		label: "Email",
-		handle: "devthamaraimanalan.m@gmail.com",
-	},
-	{
-		icon: <Github size={20} />,
+		icon: <Github size={24} />,
 		href: "https://github.com/mtm-x",
 		label: "Github",
-		handle: "mtm-x",
 	},
 	{
-		icon: <Linkedin size={20} />,
+		icon: <Linkedin size={24} />,
 		href: "https://www.linkedin.com/in/mtm-x",
 		label: "LinkedIn",
-		handle: "mtm-x",
+	},
+	{
+		icon: <MessageCircle size={24} />,
+		href: "https://discordapp.com/users/mtm-xx",
+		label: "Discord",
+	},
+	{
+		icon: <Mail size={24} />,
+		href: "mailto:devthamaraimanalan.m@gmail.com",
+		label: "Email",
 	},
 ];
 
@@ -38,34 +40,19 @@ export default function Contact() {
 					<h2 className="mt-4 text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
 						Get in Touch
 					</h2>
-					<p className="mt-4 text-zinc-400 max-w-md mx-auto leading-relaxed">
-						Have a project idea, want to collaborate, or just want to say hi?
-						Reach out through any of these channels.
-					</p>
 				</div>
-				<div className="grid w-full grid-cols-1 gap-8 mx-auto max-w-4xl sm:grid-cols-3 lg:gap-16">
+				<div className="grid w-full grid-cols-2 gap-6 mx-auto max-w-2xl sm:grid-cols-4">
 					{socials.map((s) => (
 						<Card key={s.href}>
 							<Link
 								href={s.href}
 								target="_blank"
-								className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-12 md:p-16"
+								aria-label={s.label}
+								className="relative flex items-center justify-center p-10 sm:p-12 duration-700 group"
 							>
-								<span
-									className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
-									aria-hidden="true"
-								/>
-								<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
+								<span className="relative z-10 flex items-center justify-center w-14 h-14 duration-500 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200">
 									{s.icon}
-								</span>{" "}
-								<div className="z-10 flex flex-col items-center">
-									<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display break-all">
-										{s.handle}
-									</span>
-									<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
-										{s.label}
-									</span>
-								</div>
+								</span>
 							</Link>
 						</Card>
 					))}

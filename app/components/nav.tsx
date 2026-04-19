@@ -32,7 +32,6 @@ export const Navigation: React.FC = () => {
 					<div className="flex justify-between gap-8">
 						{[
 							{ href: "/", label: "Home" },
-							{ href: "/projects", label: "Projects" },
 							{ href: "/about", label: "About" },
 							{ href: "/contact", label: "Contact" },
 						].map((link) => {
@@ -50,13 +49,6 @@ export const Navigation: React.FC = () => {
 								</Link>
 							);
 						})}
-						<Link
-							href="/resume/ThamaraimanalanM_Resume.pdf"
-							target="_blank"
-							className="duration-200 text-zinc-500 hover:text-zinc-100 hidden sm:block"
-						>
-							Resume
-						</Link>
 					</div>
 
 					<Link
