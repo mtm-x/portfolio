@@ -35,7 +35,7 @@ export default function About() {
 						<img
 							src="/images/portfolio/myself.jpeg"
 							alt="Thamaraimanalan M"
-							className="w-56 md:w-full h-auto object-contain rounded-lg border border-zinc-800 grayscale hover:grayscale-0 transition-all duration-500"
+							className="w-56 md:w-full h-auto object-contain rounded-lg border border-zinc-800"
 						/>
 					</div>
 				</div>

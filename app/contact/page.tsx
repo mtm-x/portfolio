@@ -30,10 +30,10 @@ const socials = [
 
 export default function Contact() {
 	return (
-		<div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+		<div className="min-h-screen bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 flex flex-col">
 			<Navigation />
-			<div className="container flex flex-col items-center justify-center min-h-screen px-4 mx-auto">
-				<div className="text-center mb-16 pt-32">
+			<div className="container flex-1 flex flex-col items-center justify-center px-4 mx-auto pt-28 pb-10">
+				<div className="text-center mb-12 sm:mb-16">
 					<span className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-mono">
 						Let&apos;s connect
 					</span>

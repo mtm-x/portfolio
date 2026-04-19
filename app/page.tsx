@@ -9,8 +9,11 @@ const navigation = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
-      <nav className="my-16 animate-fade-in">
+    <div className="relative flex flex-col items-center justify-center w-full min-h-screen min-h-[100svh] overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
+      <nav
+        className="absolute left-1/2 -translate-x-1/2 z-20 animate-fade-in"
+        style={{ top: "max(4.5rem, calc(env(safe-area-inset-top) + 2rem))" }}
+      >
         <ul className="flex items-center justify-center gap-4">
           {navigation.map((item, index) => (
             <React.Fragment key={item.href}>
@@ -27,25 +30,25 @@ export default function Home() {
           ))}
         </ul>
       </nav>
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+      <div className="w-[92vw] max-w-6xl h-px animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <Particles
         className="absolute inset-0 -z-10 animate-fade-in"
         quantity={150}
       />
 
-      <div className="z-10 flex flex-col items-center">
-        <div className="animate-fade-in mb-5">
-          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-zinc-500 font-mono">
+      <div className="z-10 flex flex-col items-center px-4 gap-3">
+        <div className="animate-fade-in max-w-[19rem] sm:max-w-none min-h-[2.75rem] sm:min-h-0">
+          <span className="block text-center text-[10px] sm:text-xs tracking-[0.14em] sm:tracking-[0.3em] leading-relaxed uppercase text-zinc-500 font-mono">
             Interested in embedded systems and open source
           </span>
         </div>
 
-        <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-7xl whitespace-nowrap bg-clip-text">
+        <h1 className="py-3.5 px-0.5 z-10 text-center text-3xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-5xl md:text-6xl sm:whitespace-nowrap bg-clip-text">
           Thamaraimanalan M
         </h1>
       </div>
 
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+      <div className="w-[92vw] max-w-6xl h-px animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
     </div>
   );
 }

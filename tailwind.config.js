@@ -85,21 +85,23 @@ module.exports = {
 				},
 				title: {
 					"0%": {
-						"line-height": "0%",
-						"letter-spacing": "0.25em",
+						"letter-spacing": "0.18em",
 						opacity: "0",
+						transform: "translateY(10px)",
+						filter: "blur(2px)",
 					},
 					"25%": {
-						"line-height": "0%",
-						opacity: "0%",
+						opacity: "35%",
 					},
 					"80%": {
 						opacity: "100%",
 					},
 
 					"100%": {
-						"line-height": "100%",
+						"letter-spacing": "0.02em",
 						opacity: "100%",
+						transform: "translateY(0)",
+						filter: "blur(0)",
 					},
 				},
 				glow: {
