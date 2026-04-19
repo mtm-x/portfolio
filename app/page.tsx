@@ -37,12 +37,6 @@ export default function Home() {
       />
 
       <div className="z-10 flex flex-col items-center px-4 gap-3">
-        <div className="animate-fade-in max-w-[19rem] sm:max-w-none min-h-[2.75rem] sm:min-h-0">
-          <span className="block text-center text-[10px] sm:text-xs tracking-[0.14em] sm:tracking-[0.3em] leading-relaxed uppercase text-zinc-500 font-mono">
-            Interested in embedded systems and open source
-          </span>
-        </div>
-
         <h1 className="py-3.5 px-0.5 z-10 text-center text-3xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-5xl md:text-6xl sm:whitespace-nowrap bg-clip-text">
           Thamaraimanalan M
         </h1>

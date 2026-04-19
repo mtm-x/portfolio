@@ -16,16 +16,8 @@ export default function About() {
 		<div className="relative min-h-screen bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 pb-16">
 			<Navigation />
 			<div className="px-6 pt-20 mx-auto max-w-4xl lg:px-8 md:pt-24 lg:pt-32">
-				{/* Header — photo above intro */}
 				<div className="flex flex-col items-center text-center">
-					<div className="flex justify-center">
-						<img
-							src="/images/portfolio/myself.jpeg"
-							alt="Thamaraimanalan M"
-							className="w-40 sm:w-48 aspect-square object-cover object-top rounded-full border border-zinc-800"
-						/>
-					</div>
-					<div className="mt-6">
+					<div>
 						<h1 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
 							Thamaraimanalan M
 						</h1>
