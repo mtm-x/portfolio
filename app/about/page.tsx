@@ -16,9 +16,16 @@ export default function About() {
 		<div className="relative min-h-screen bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 pb-16">
 			<Navigation />
 			<div className="px-6 pt-20 mx-auto max-w-4xl lg:px-8 md:pt-24 lg:pt-32">
-				{/* Header — photo + intro side by side */}
-				<div className="grid grid-cols-1 md:grid-cols-[1fr_200px] gap-10 items-start">
-					<div>
+				{/* Header — photo above intro */}
+				<div className="flex flex-col items-center text-center">
+					<div className="flex justify-center">
+						<img
+							src="/images/portfolio/myself.jpeg"
+							alt="Thamaraimanalan M"
+							className="w-40 sm:w-48 aspect-square object-cover object-top rounded-full border border-zinc-800"
+						/>
+					</div>
+					<div className="mt-6">
 						<h1 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
 							Thamaraimanalan M
 						</h1>
@@ -30,13 +37,6 @@ export default function About() {
 							for the Linux Kernel Mentorship Program (Spring 2026).
 							Previously interned at FOSSEE, IIT Bombay.
 						</p>
-					</div>
-					<div className="flex justify-center md:justify-start">
-						<img
-							src="/images/portfolio/myself.jpeg"
-							alt="Thamaraimanalan M"
-							className="w-56 md:w-full h-auto object-contain rounded-lg border border-zinc-800"
-						/>
 					</div>
 				</div>
 
