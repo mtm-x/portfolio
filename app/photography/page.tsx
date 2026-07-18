@@ -57,7 +57,8 @@ export default async function PhotographyPage() {
 						Photography
 					</h2>
 					<p className="mt-4 text-zinc-400 leading-relaxed">
-						A collection of moments, landscapes, and details. 
+						A collection of moments, landscapes, and details. <br />
+						<span className="text-zinc-500 text-sm">Shot on Nothing Phone 3A Pro.</span>
 					</p>
 				</div>
 				<div className="w-full h-px bg-gradient-to-r from-zinc-800/0 via-zinc-800 to-zinc-800/0" />
