@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 		template: "%s | Thamaraimanalan M",
 	},
 	description:
-		"ECE student interested in embedded systems, the Linux kernel, and systems programming.",
+		"Interested in embedded systems, the Linux kernel, and photography.",
 	openGraph: {
 		title: "Thamaraimanalan M",
 		description:
-			"ECE student interested in embedded systems, the Linux kernel, and systems programming.",
-		url: "https://mtm-x.com",
+			"Interested in embedded systems, the Linux kernel, and photography.",
+		url: "https://thamarai.dev",
 		siteName: "Thamaraimanalan M",
 		locale: "en-US",
 		type: "website",
@@ -58,9 +58,8 @@ export default function RootLayout({
 				<Analytics />
 			</head>
 			<body
-				className={`bg-black ${
-					process.env.NODE_ENV === "development" ? "debug-screens" : ""
-				}`}
+				className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : ""
+					}`}
 			>
 				{children}
 			</body>
