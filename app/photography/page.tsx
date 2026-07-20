@@ -4,6 +4,7 @@ import { Navigation } from "../components/nav";
 import { Footer } from "../components/footer";
 import { Gallery } from "../components/gallery";
 import { v2 as cloudinary } from "cloudinary";
+import { Camera } from "lucide-react";
 
 export const metadata: Metadata = {
 	title: "Photography",
@@ -11,8 +12,8 @@ export const metadata: Metadata = {
 		"Photography portfolio by Thamaraimanalan M — capturing moments and landscapes.",
 };
 
-// Next.js config to revalidate this page every hour (or you can use on-demand revalidation)
-export const revalidate = 3600; 
+// Revalidate every hour
+export const revalidate = 3600;
 
 async function getPhotos() {
 	cloudinary.config({
@@ -25,13 +26,13 @@ async function getPhotos() {
 		const results = await cloudinary.search
 			.expression("folder:portfolio")
 			.sort_by("created_at", "desc")
-			.max_results(100) // Fetches up to 100 photos. Adjust as needed!
+			.max_results(100)
 			.execute();
 
 		return results.resources.map((resource: any) => ({
 			id: resource.public_id,
-			url: resource.secure_url, // We use this for the lightbox full-res
-			publicId: resource.public_id, // We use this for CldImage optimization
+			url: resource.secure_url,
+			publicId: resource.public_id,
 			width: resource.width,
 			height: resource.height,
 			alt: resource.public_id.split("/").pop() || "Photography",
@@ -49,26 +50,47 @@ export default async function PhotographyPage() {
 		<div className="relative pb-16 min-h-screen bg-black">
 			<Navigation />
 			<div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+				{/* Header */}
 				<div className="max-w-2xl mx-auto lg:mx-0">
 					<span className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-mono">
 						Portfolio
 					</span>
-					<h2 className="mt-4 text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
+					<h1 className="mt-4 text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
 						Photography
-					</h2>
+					</h1>
 					<p className="mt-4 text-zinc-400 leading-relaxed">
-						A collection of moments, landscapes, and details. <br />
-						<span className="text-zinc-500 text-sm">Shot on Nothing Phone 3A Pro.</span>
+						A collection of moments, landscapes, and details.
 					</p>
+
+					{/* Camera badge */}
+					<div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/50">
+						<Camera className="w-3.5 h-3.5 text-zinc-500" />
+						<span className="text-zinc-500 text-xs">
+							Shot on Nothing Phone 3A Pro
+						</span>
+					</div>
+
+					{/* Photo count */}
+					{photos.length > 0 && (
+						<p className="mt-4 text-xs text-zinc-600 font-mono">
+							{photos.length} {photos.length === 1 ? "photo" : "photos"}
+						</p>
+					)}
 				</div>
+
 				<div className="w-full h-px bg-gradient-to-r from-zinc-800/0 via-zinc-800 to-zinc-800/0" />
 
-				{/* Gallery Component handles Masonry and Lightbox */}
-				<div className="mx-auto mt-12">
+				{/* Gallery */}
+				<div className="mx-auto">
 					{photos.length > 0 ? (
 						<Gallery photos={photos} />
 					) : (
-						<p className="text-zinc-500 italic">No photos found in the Cloudinary 'portfolio' folder yet.</p>
+						<div className="flex flex-col items-center justify-center py-24 gap-4">
+							<Camera className="w-12 h-12 text-zinc-700" />
+							<p className="text-zinc-500 text-sm">
+								No photos yet. Check back soon.
+							</p>
+						</div>
 					)}
 				</div>
 			</div>
