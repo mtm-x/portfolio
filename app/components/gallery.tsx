@@ -52,9 +52,11 @@ export const Gallery: React.FC<GalleryProps> = ({ photos }) => {
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true, margin: "-40px" }}
-						className="relative break-inside-avoid overflow-hidden rounded-xl cursor-pointer group"
+						className="group relative mb-4 break-inside-avoid overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.45)] cursor-pointer"
 						onClick={() => setIndex(i)}
 					>
+						<div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+						<div className="absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-white/5" />
 						{photo.publicId ? (
 							<CldImage
 								src={photo.publicId}
@@ -62,7 +64,7 @@ export const Gallery: React.FC<GalleryProps> = ({ photos }) => {
 								width={photo.width}
 								height={photo.height}
 								sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-								className="w-full h-auto object-cover transition-all duration-700 ease-out group-hover:scale-[1.03]"
+								className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
 							/>
 						) : (
 							<img
@@ -70,12 +72,9 @@ export const Gallery: React.FC<GalleryProps> = ({ photos }) => {
 								alt={photo.alt}
 								width={photo.width}
 								height={photo.height}
-								className="w-full h-auto object-cover transition-all duration-700 ease-out group-hover:scale-[1.03]"
+								className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
 							/>
 						)}
-
-						{/* Hover overlay with subtle gradient */}
-						<div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 					</motion.div>
 				))}
 			</div>

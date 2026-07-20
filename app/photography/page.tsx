@@ -66,14 +66,10 @@ export default async function PhotographyPage() {
 	const photos = await getPhotos();
 
 	return (
-		<div className="relative pb-16 min-h-screen bg-black">
+		<div className="relative min-h-screen bg-gradient-to-tl from-black via-zinc-600/20 to-black pb-16">
 			<Navigation />
 			<div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-				{/* Header */}
 				<div className="max-w-2xl mx-auto lg:mx-0">
-					<span className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-mono">
-						Portfolio
-					</span>
 					<h1 className="mt-4 text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
 						Photography
 					</h1>
@@ -81,7 +77,6 @@ export default async function PhotographyPage() {
 						A collection of moments, landscapes, and details.
 					</p>
 
-					{/* Camera badge */}
 					<div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/50">
 						<Camera className="w-3.5 h-3.5 text-zinc-500" />
 						<span className="text-zinc-500 text-xs">
@@ -89,7 +84,6 @@ export default async function PhotographyPage() {
 						</span>
 					</div>
 
-					{/* Photo count */}
 					{photos.length > 0 && (
 						<p className="mt-4 text-xs text-zinc-600 font-mono">
 							{photos.length} {photos.length === 1 ? "photo" : "photos"}
@@ -98,6 +92,8 @@ export default async function PhotographyPage() {
 				</div>
 
 				<div className="w-full h-px bg-gradient-to-r from-zinc-800/0 via-zinc-800 to-zinc-800/0" />
+
+				<div className="h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
 				{/* Gallery */}
 				<div className="mx-auto">
