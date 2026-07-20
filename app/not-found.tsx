@@ -18,9 +18,7 @@ export default function NotFound() {
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
 			<div className="my-16 text-center animate-fade-in">
-				<p className="text-sm text-zinc-500 mb-8">
-					This page doesn't exist.
-				</p>
+				<p className="text-sm text-zinc-500 mb-8">This page doesn't exist.</p>
 				<Link
 					href="/"
 					className="text-sm px-5 py-2 rounded-full border border-zinc-700 text-zinc-400 hover:text-zinc-100 hover:border-zinc-400 duration-500 transition-all"

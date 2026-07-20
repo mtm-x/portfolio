@@ -1,10 +1,10 @@
-import React from "react";
-import type { Metadata } from "next";
-import { Navigation } from "../components/nav";
-import { Footer } from "../components/footer";
-import { Gallery } from "../components/gallery";
 import { v2 as cloudinary } from "cloudinary";
 import { Camera } from "lucide-react";
+import type { Metadata } from "next";
+import React from "react";
+import { Footer } from "../components/footer";
+import { Gallery } from "../components/gallery";
+import { Navigation } from "../components/nav";
 
 export const metadata: Metadata = {
 	title: "Photography",
@@ -15,6 +15,13 @@ export const metadata: Metadata = {
 // Revalidate every hour
 export const revalidate = 3600;
 
+type CloudinaryPhotoResource = {
+	public_id: string;
+	secure_url: string;
+	width: number;
+	height: number;
+};
+
 async function getPhotos() {
 	cloudinary.config({
 		cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -23,13 +30,25 @@ async function getPhotos() {
 	});
 
 	try {
-		const results = await cloudinary.search
-			.expression("folder:portfolio")
-			.sort_by("created_at", "desc")
-			.max_results(100)
-			.execute();
+		const photos: CloudinaryPhotoResource[] = [];
+		let nextCursor: string | undefined;
 
-		return results.resources.map((resource: any) => ({
+		do {
+			const results = (await cloudinary.search
+				.expression("folder:portfolio")
+				.sort_by("created_at", "desc")
+				.max_results(100)
+				.next_cursor(nextCursor)
+				.execute()) as {
+				resources: CloudinaryPhotoResource[];
+				next_cursor?: string;
+			};
+
+			photos.push(...results.resources);
+			nextCursor = results.next_cursor;
+		} while (nextCursor);
+
+		return photos.map((resource) => ({
 			id: resource.public_id,
 			url: resource.secure_url,
 			publicId: resource.public_id,

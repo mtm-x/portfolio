@@ -25,9 +25,9 @@ export default function About() {
 							Just open source :)
 						</p>
 						<p className="mt-3 text-zinc-500 leading-relaxed text-sm">
-							Currently an Embedded Software Intern at Linumiz and selected
-							for the Linux Kernel Mentorship Program (Spring 2026).
-							Previously interned at FOSSEE, IIT Bombay.
+							Currently an Embedded Software Intern at Linumiz and selected for
+							the Linux Kernel Mentorship Program (Spring 2026). Previously
+							interned at FOSSEE, IIT Bombay.
 						</p>
 					</div>
 				</div>
@@ -37,9 +37,12 @@ export default function About() {
 						Current work
 					</h2>
 					<div className="space-y-4">
-						<p className="text-sm text-zinc-300">Embedded Software Intern · Linumiz</p>
 						<p className="text-sm text-zinc-300">
-							Linux Kernel Mentee (Spring 2026) · Linux Foundation Mentorship Program
+							Embedded Software Intern · Linumiz
+						</p>
+						<p className="text-sm text-zinc-300">
+							Linux Kernel Mentee (Spring 2026) · Linux Foundation Mentorship
+							Program
 						</p>
 					</div>
 				</div>
