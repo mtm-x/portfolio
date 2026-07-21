@@ -4,13 +4,12 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev --webpack",
-		"prebuild": "contentlayer build || true",
 		"build": "next build",
 		"start": "next start",
 		"fmt": "biome check --write ."
 	},
 	"engines": {
-		"node": "20.x"
+		"node": "24.x"
 	},
 	"dependencies": {
 		"@next/mdx": "^16.1.4",
