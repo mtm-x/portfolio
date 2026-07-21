@@ -66,7 +66,7 @@ export default async function PhotographyPage() {
 	const photos = await getPhotos();
 
 	return (
-		<div className="relative min-h-screen bg-gradient-to-tl from-black via-zinc-600/20 to-black pb-16">
+		<div className="relative min-h-screen bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 pb-16">
 			<Navigation />
 			<div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
 				<div className="max-w-2xl mx-auto lg:mx-0">
@@ -93,9 +93,6 @@ export default async function PhotographyPage() {
 
 				<div className="w-full h-px bg-gradient-to-r from-zinc-800/0 via-zinc-800 to-zinc-800/0" />
 
-				<div className="h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-
-				{/* Gallery */}
 				<div className="mx-auto">
 					{photos.length > 0 ? (
 						<Gallery photos={photos} />

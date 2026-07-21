@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import type React from "react";
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import Counter from "yet-another-react-lightbox/plugins/counter";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
@@ -50,13 +50,10 @@ export const Gallery: React.FC<GalleryProps> = ({ photos }) => {
 						custom={i}
 						variants={cardVariants}
 						initial="hidden"
-						whileInView="visible"
-						viewport={{ once: true, margin: "-40px" }}
-						className="group relative mb-4 break-inside-avoid overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.45)] cursor-pointer"
+						animate="visible"
+						className="group relative mb-4 break-inside-avoid overflow-hidden rounded-3xl border border-zinc-800/70 bg-zinc-950/30 cursor-pointer shadow-[0_10px_40px_rgba(0,0,0,0.18)]"
 						onClick={() => setIndex(i)}
 					>
-						<div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-						<div className="absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-white/5" />
 						{photo.publicId ? (
 							<CldImage
 								src={photo.publicId}
@@ -64,6 +61,8 @@ export const Gallery: React.FC<GalleryProps> = ({ photos }) => {
 								width={photo.width}
 								height={photo.height}
 								sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+								loading={i < 4 ? "eager" : "lazy"}
+								priority={i < 4}
 								className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
 							/>
 						) : (
@@ -72,6 +71,8 @@ export const Gallery: React.FC<GalleryProps> = ({ photos }) => {
 								alt={photo.alt}
 								width={photo.width}
 								height={photo.height}
+								loading={i < 4 ? "eager" : "lazy"}
+								decoding="async"
 								className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
 							/>
 						)}
