@@ -35,3 +35,32 @@
 		background: #52525b;
 	}
 }
+
+/* ─── Premium Photography Aesthetics ─── */
+
+/* Cinematic Darkroom Lightbox (No heavy GPU blurs!) */
+.yarl__container {
+	background-color: rgba(0, 0, 0, 0.96) !important;
+	/* Base64 subtle noise texture for film feel */
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMoA+/AAAACHRSTlMA/////////9XKVDIAAABoSURBVDjLpZFBSwMxEEVf16p/wW3QWg+r/6DFW+v/H6gHnU2G7KRM3sxjHg8k857m+Y5lWZbl+10x5/k05zk8P9263x55fn98vL7dvh4Pj5fn6+1x8nx6u71en25Pt8en59vt8fnr4+PxD3u/13z6h/gMAAAAAElFTkSuQmCC');
+	background-repeat: repeat;
+	background-blend-mode: overlay;
+}
+
+.yarl__slide_image {
+	border-radius: 8px;
+	box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.yarl__toolbar {
+	background: transparent !important;
+}
+
+.yarl__counter_container {
+	font-family: var(--font-inter), ui-monospace, monospace;
+	font-size: 11px;
+	letter-spacing: 0.15em;
+	color: rgba(255, 255, 255, 0.6) !important;
+	padding: 16px 24px !important;
+	text-transform: uppercase;
+}

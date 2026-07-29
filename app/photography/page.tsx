@@ -1,5 +1,5 @@
 import { v2 as cloudinary } from "cloudinary";
-import { Camera } from "lucide-react";
+import { Camera, Aperture } from "lucide-react";
 import type { Metadata } from "next";
 import React from "react";
 import { Footer } from "../components/footer";
@@ -66,46 +66,71 @@ export default async function PhotographyPage() {
 	const photos = await getPhotos();
 
 	return (
-		<div className="relative min-h-screen bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 pb-16">
+		<div className="relative min-h-screen bg-[#0a0a0a] pb-16 overflow-hidden">
 			<Navigation />
-			<div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-				<div className="max-w-2xl mx-auto lg:mx-0">
-					<h1 className="mt-4 text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
-						Photography
-					</h1>
-					<p className="mt-4 text-zinc-400 leading-relaxed">
-						A collection of moments, landscapes, and details.
-					</p>
 
-					<div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/50">
-						<Camera className="w-3.5 h-3.5 text-zinc-500" />
-						<span className="text-zinc-500 text-xs">
-							Shot on Nothing Phone 3A Pro
+			{/* Hero Section */}
+			<div className="relative px-6 pt-24 mx-auto max-w-7xl lg:px-8 md:pt-32 lg:pt-40">
+				<div className="relative max-w-3xl mx-auto lg:mx-0">
+					{/* Eyebrow */}
+					<div className="flex items-center gap-4 mb-8">
+						<div className="h-px w-10 bg-gradient-to-r from-zinc-500 to-transparent" />
+						<span className="text-[11px] tracking-[0.4em] uppercase text-zinc-500 font-mono">
+							Gallery
 						</span>
 					</div>
 
-					{photos.length > 0 && (
-						<p className="mt-4 text-xs text-zinc-600 font-mono">
-							{photos.length} {photos.length === 1 ? "photo" : "photos"}
-						</p>
-					)}
-				</div>
+					{/* Title with subtle gradient text */}
+					<h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight font-display leading-[1.1] text-transparent bg-clip-text bg-gradient-to-br from-zinc-100 via-zinc-300 to-zinc-600">
+						Photography
+					</h1>
 
-				<div className="w-full h-px bg-gradient-to-r from-zinc-800/0 via-zinc-800 to-zinc-800/0" />
+					{/* Description */}
+					<p className="mt-6 text-lg text-zinc-400 leading-relaxed max-w-xl">
+						A collection of moments, landscapes, and details — framed through light and perspective.
+					</p>
 
-				<div className="mx-auto">
-					{photos.length > 0 ? (
-						<Gallery photos={photos} />
-					) : (
-						<div className="flex flex-col items-center justify-center py-24 gap-4">
-							<Camera className="w-12 h-12 text-zinc-700" />
-							<p className="text-zinc-500 text-sm">
-								No photos yet. Check back soon.
-							</p>
+					{/* Metadata row with glassmorphism pills */}
+					<div className="mt-10 flex flex-wrap items-center gap-4">
+						<div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md shadow-2xl">
+							<Aperture className="w-4 h-4 text-zinc-400" />
+							<span className="text-zinc-300 text-xs font-medium tracking-wide">
+								Nothing Phone 3A Pro
+							</span>
 						</div>
-					)}
+
+						{photos.length > 0 && (
+							<div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md shadow-2xl">
+								<Camera className="w-4 h-4 text-zinc-400" />
+								<span className="text-zinc-300 text-xs font-medium tracking-wide">
+									{photos.length} {photos.length === 1 ? "photo" : "photos"}
+								</span>
+							</div>
+						)}
+					</div>
 				</div>
+
+				{/* Animated divider */}
+				<div className="mt-16 md:mt-24 w-full h-px bg-gradient-to-r from-transparent via-zinc-700/50 to-transparent" />
 			</div>
+
+			{/* Gallery Section */}
+			<div className="relative z-10 px-6 mx-auto max-w-7xl lg:px-8 mt-12 md:mt-20">
+				{photos.length > 0 ? (
+					<Gallery photos={photos} />
+				) : (
+					<div className="flex flex-col items-center justify-center py-40 gap-6">
+						<div className="relative">
+							<div className="absolute inset-0 bg-zinc-500/10 rounded-full blur-3xl scale-150" />
+							<Camera className="relative w-16 h-16 text-zinc-700" />
+						</div>
+						<p className="text-zinc-500 text-sm font-medium tracking-wide">
+							No photos yet — check back soon.
+						</p>
+					</div>
+				)}
+			</div>
+
 			<Footer />
 		</div>
 	);

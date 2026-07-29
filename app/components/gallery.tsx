@@ -23,18 +23,13 @@ interface GalleryProps {
 	photos: Photo[];
 }
 
-// Staggered fade-in for each photo card
 const cardVariants = {
-	hidden: { opacity: 0, y: 30 },
-	visible: (i: number) => ({
+	hidden: { opacity: 0.01, y: 15 },
+	visible: {
 		opacity: 1,
 		y: 0,
-		transition: {
-			delay: i * 0.06,
-			duration: 0.5,
-			ease: [0.25, 0.46, 0.45, 0.94],
-		},
-	}),
+		transition: { duration: 0.5, ease: "easeOut" },
+	},
 };
 
 export const Gallery: React.FC<GalleryProps> = ({ photos }) => {
@@ -42,18 +37,21 @@ export const Gallery: React.FC<GalleryProps> = ({ photos }) => {
 
 	return (
 		<>
-			{/* Masonry Grid */}
-			<div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+			{/* Masonry "Wall" Grid */}
+			<div className="group/list columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
 				{photos.map((photo, i) => (
 					<motion.div
 						key={photo.id}
-						custom={i}
 						variants={cardVariants}
 						initial="hidden"
-						animate="visible"
-						className="group relative mb-4 break-inside-avoid overflow-hidden rounded-3xl border border-zinc-800/70 bg-zinc-950/30 cursor-pointer shadow-[0_10px_40px_rgba(0,0,0,0.18)]"
+						whileInView="visible"
+						viewport={{ once: true, margin: "50px 0px -50px 0px" }}
+						className="group/card relative break-inside-avoid cursor-pointer overflow-hidden rounded-[20px] border border-white/[0.05] bg-white/[0.02] mb-6 transition-opacity md:duration-500 md:hover:!opacity-100 md:group-hover/list:opacity-30"
 						onClick={() => setIndex(i)}
 					>
+						{/* Soft inner highlight for premium physical feel */}
+						<div className="absolute inset-0 rounded-[20px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] z-20 pointer-events-none" />
+
 						{photo.publicId ? (
 							<CldImage
 								src={photo.publicId}
@@ -63,7 +61,7 @@ export const Gallery: React.FC<GalleryProps> = ({ photos }) => {
 								sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
 								loading={i < 4 ? "eager" : "lazy"}
 								priority={i < 4}
-								className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+								className="w-full h-auto object-cover md:transition-transform md:duration-700 ease-out md:group-hover/card:scale-[1.02]"
 							/>
 						) : (
 							<img
@@ -73,14 +71,24 @@ export const Gallery: React.FC<GalleryProps> = ({ photos }) => {
 								height={photo.height}
 								loading={i < 4 ? "eager" : "lazy"}
 								decoding="async"
-								className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+								className="w-full h-auto object-cover md:transition-transform md:duration-700 ease-out md:group-hover/card:scale-[1.02]"
 							/>
 						)}
+
+						{/* Dark gradient for text contrast - Desktop only */}
+						<div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 md:group-hover/card:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+
+						{/* Floating View Pill - Desktop only */}
+						<div className="hidden md:block absolute bottom-6 left-1/2 -translate-x-1/2 z-20 opacity-0 md:group-hover/card:opacity-100 translate-y-4 md:group-hover/card:translate-y-0 transition-all duration-500 ease-out pointer-events-none">
+							<div className="px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl">
+								<span className="text-[10px] text-white tracking-[0.2em] uppercase font-semibold">View Photo</span>
+							</div>
+						</div>
 					</motion.div>
 				))}
 			</div>
 
-			{/* Lightbox with zoom + counter plugins */}
+			{/* Cinematic Lightbox */}
 			<Lightbox
 				open={index >= 0}
 				close={() => setIndex(-1)}
@@ -97,10 +105,7 @@ export const Gallery: React.FC<GalleryProps> = ({ photos }) => {
 					maxZoomPixelRatio: 3,
 					scrollToZoom: true,
 				}}
-				animation={{ fade: 300, swipe: 250 }}
-				styles={{
-					container: { backgroundColor: "rgba(0, 0, 0, 0.95)" },
-				}}
+				animation={{ fade: 250, swipe: 250 }}
 			/>
 		</>
 	);
