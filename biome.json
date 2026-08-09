@@ -1,14 +1,15 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"files": {
+		"ignore": ["node_modules", ".next", "dist", ".contentlayer"]
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": true
-		},
-		"ignore": ["node_modules", ".next", "dist", ".contentlayer"]
+		}
 	},
 	"formatter": {
-		"enabled": true,
-		"ignore": ["node_modules", ".next", "dist", ".contentlayer"]
+		"enabled": true
 	}
 }

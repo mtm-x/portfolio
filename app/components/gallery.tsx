@@ -81,7 +81,9 @@ export const Gallery: React.FC<GalleryProps> = ({ photos }) => {
 						{/* Floating View Pill - Desktop only */}
 						<div className="hidden md:block absolute bottom-6 left-1/2 -translate-x-1/2 z-20 opacity-0 md:group-hover/card:opacity-100 translate-y-4 md:group-hover/card:translate-y-0 transition-all duration-500 ease-out pointer-events-none">
 							<div className="px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl">
-								<span className="text-[10px] text-white tracking-[0.2em] uppercase font-semibold">View Photo</span>
+								<span className="text-[10px] text-white tracking-[0.2em] uppercase font-semibold">
+									View Photo
+								</span>
 							</div>
 						</div>
 					</motion.div>

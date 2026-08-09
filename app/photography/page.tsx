@@ -1,5 +1,5 @@
 import { v2 as cloudinary } from "cloudinary";
-import { Camera, Aperture } from "lucide-react";
+import { Aperture, Camera } from "lucide-react";
 import type { Metadata } from "next";
 import React from "react";
 import { Footer } from "../components/footer";
@@ -20,14 +20,33 @@ type CloudinaryPhotoResource = {
 	secure_url: string;
 	width: number;
 	height: number;
+	tags?: string[];
+	created_at?: string;
 };
 
 async function getPhotos() {
-	cloudinary.config({
-		cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
-		api_key: process.env.CLOUDINARY_API_KEY,
-		api_secret: process.env.CLOUDINARY_API_SECRET,
-	});
+	const cloudName =
+		process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ||
+		process.env.CLOUDINARY_CLOUD_NAME;
+	const apiKey = process.env.CLOUDINARY_API_KEY;
+	const apiSecret = process.env.CLOUDINARY_API_SECRET;
+
+	if (cloudName && apiKey && apiSecret) {
+		cloudinary.config({
+			cloud_name: cloudName,
+			api_key: apiKey,
+			api_secret: apiSecret,
+			secure: true,
+		});
+	}
+
+	const currentConfig = cloudinary.config();
+	if (!currentConfig.cloud_name) {
+		console.warn(
+			"Cloudinary configuration missing (cloud_name is required). Set NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET environment variables.",
+		);
+		return [];
+	}
 
 	try {
 		const photos: CloudinaryPhotoResource[] = [];
@@ -36,6 +55,7 @@ async function getPhotos() {
 		do {
 			const results = (await cloudinary.search
 				.expression("folder:portfolio")
+				.with_field("tags")
 				.sort_by("created_at", "desc")
 				.max_results(100)
 				.next_cursor(nextCursor)
@@ -48,7 +68,15 @@ async function getPhotos() {
 			nextCursor = results.next_cursor;
 		} while (nextCursor);
 
-		return photos.map((resource) => ({
+		const pinned = photos.filter((resource) =>
+			resource.tags?.includes("ultimate"),
+		);
+		const unpinned = photos.filter(
+			(resource) => !resource.tags?.includes("ultimate"),
+		);
+		const orderedPhotos = [...pinned, ...unpinned];
+
+		return orderedPhotos.map((resource) => ({
 			id: resource.public_id,
 			url: resource.secure_url,
 			publicId: resource.public_id,
@@ -87,7 +115,8 @@ export default async function PhotographyPage() {
 
 					{/* Description */}
 					<p className="mt-6 text-lg text-zinc-400 leading-relaxed max-w-xl">
-						A collection of moments, landscapes, and details — framed through light and perspective.
+						A collection of moments, landscapes, and details — framed through
+						light and perspective.
 					</p>
 
 					{/* Metadata row with glassmorphism pills */}

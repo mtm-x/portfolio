@@ -12,6 +12,7 @@
 		"node": "24.x"
 	},
 	"dependencies": {
+		"@emotion/is-prop-valid": "^1.4.0",
 		"@next/mdx": "^16.1.4",
 		"cloudinary": "^2.10.0",
 		"clsx": "^2.1.1",
