@@ -68,13 +68,19 @@ async function getPhotos() {
 			nextCursor = results.next_cursor;
 		} while (nextCursor);
 
-		const pinned = photos.filter((resource) =>
+		const ultimate = photos.filter((resource) =>
 			resource.tags?.includes("ultimate"),
 		);
-		const unpinned = photos.filter(
-			(resource) => !resource.tags?.includes("ultimate"),
+		const fav = photos.filter(
+			(resource) =>
+				resource.tags?.includes("fav") && !resource.tags?.includes("ultimate"),
 		);
-		const orderedPhotos = [...pinned, ...unpinned];
+		const remaining = photos.filter(
+			(resource) =>
+				!resource.tags?.includes("ultimate") &&
+				!resource.tags?.includes("fav"),
+		);
+		const orderedPhotos = [...ultimate, ...fav, ...remaining];
 
 		return orderedPhotos.map((resource) => ({
 			id: resource.public_id,
